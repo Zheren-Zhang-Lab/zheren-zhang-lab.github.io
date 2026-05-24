@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Name | University</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:        #0a0e14;
+            --bg-soft:   #11161f;
+            --panel:     #141b26;
+            --border:    #1f2a38;
+            --text:      #d4dae3;
+            --text-dim:  #7c8a9e;
+            --accent:    #4fd1c5;
+            --accent-dim:#2a6f68;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* subtle background grid texture */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 64px 64px;
+            opacity: 0.25;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 28px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mono {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        /* ---------- NAV ---------- */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(10, 14, 20, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 18px;
+            padding-bottom: 18px;
+        }
+        .logo {
+            font-weight: 700;
+            font-size: 1.15rem;
+            letter-spacing: 0.02em;
+        }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* ---------- HERO ---------- */
+        header {
+            padding: 110px 0 90px;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            top: -120px;
+            right: -120px;
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%);
+            opacity: 0.35;
+            filter: blur(40px);
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .hero-visual {
+            aspect-ratio: 1 / 1;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .hero-visual img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-tag { margin-bottom: 22px; display: inline-block; }
+        h1.hero-title {
+            font-size: 2.9rem;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 22px;
+        }
+        h1.hero-title .glow { color: var(--accent); }
+        .hero-text {
+            color: var(--text-dim);
+            font-size: 1.08rem;
+            max-width: 540px;
+            margin-bottom: 34px;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 13px 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(79, 209, 197, 0.25);
+        }
+
+        /* helix-ish decorative panel */
+        .hero-visual {
+            aspect-ratio: 1;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background:
+                radial-gradient(circle at 50% 50%, rgba(79,209,197,0.08), transparent 70%),
+                var(--panel);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .hero-visual svg { width: 62%; height: 62%; }
+
+        /* ---------- SECTIONS ---------- */
+        section { padding: 88px 0; }
+        .section-head { margin-bottom: 48px; }
+        .section-head h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-top: 8px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 30px 26px;
+            transition: border-color 0.25s ease, transform 0.25s ease;
+            position: relative;
+        }
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 26px; right: 26px;
+            height: 2px;
+            background: var(--accent);
+            opacity: 0.4;
+            transition: opacity 0.25s ease;
+        }
+        .card:hover {
+            border-color: var(--accent-dim);
+            transform: translateY(-4px);
+        }
+        .card:hover::before { opacity: 1; }
+        .card .num {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .card p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        /* team + publications */
+        .alt { background: var(--bg-soft); border-block: 1px solid var(--border); }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .member {
+            text-align: center;
+        }
+        .avatar {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 14px;
+            border-radius: 50%;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.4rem;
+        }
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .member .name { font-weight: 600; font-size: 1rem; }
+        .member .role { color: var(--text-dim); font-size: 0.85rem; }
+
+        .pub-list { display: flex; flex-direction: column; gap: 14px; }
+        .pub {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-left: 2px solid var(--accent);
+            border-radius: 6px;
+            padding: 20px 24px;
+        }
+        .pub .venue {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .pub .title { font-weight: 600; margin: 6px 0 4px; }
+        .pub .authors { color: var(--text-dim); font-size: 0.88rem; }
+
+        .pub-link {
+            display: inline-block;
+            margin-top: 10px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.06em;
+            color: var(--accent);
+            text-decoration: none;
+            border: 1px solid var(--accent-dim);
+            padding: 3px 10px;
+            border-radius: 4px;
+            transition: background 0.2s ease;
+        }
+        .pub-link:hover { background: var(--accent-dim); }
+
+        /* ---------- VIDEO ---------- */
+        .video-wrap {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .video-wrap iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: 0;
+        }
+        .video-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 24px;
+        }
+        .video-link {
+            display: inline-block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.04em;
+            color: var(--accent);
+            text-decoration: none;
+            background: var(--panel);
+            border: 1px solid var(--accent-dim);
+            padding: 10px 16px;
+            border-radius: 6px;
+            transition: background 0.2s ease, transform 0.15s ease;
+        }
+        .video-link:hover {
+            background: var(--accent-dim);
+            transform: translateY(-2px);
+        }
+
+        /* highlight a publication when linked to */
+        .pub:target {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 1px var(--accent);
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 44px 0;
+            background: var(--bg-soft);
+        }
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        footer p { color: var(--text-dim); font-size: 0.88rem; }
+        footer a { color: var(--accent); text-decoration: none; }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 860px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero-visual { max-width: 280px; }
+            .cards { grid-template-columns: 1fr; }
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+            h1.hero-title { font-size: 2.2rem; }
+            .nav-links { gap: 18px; }
+        }
+
+        /* entrance animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            animation: rise 0.7s ease forwards;
+        }
+        @keyframes rise {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .d1 { animation-delay: 0.05s; }
+        .d2 { animation-delay: 0.15s; }
+        .d3 { animation-delay: 0.25s; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <div class="logo">Zheren<span>Lab</span></div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#videos">Videos</a>
+                <a href="#research">Research</a>
+                <a href="#team">Team</a>
+                <a href="#publications">Publications</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home">
+        <div class="container hero-grid">
+            <div>
+                <span class="mono hero-tag reveal d1">// Synthetic &amp; Evolutionary Biology</span>
+                <h1 class="hero-title reveal d2">
+                    Designing evolution for <span class="glow">discovery</span> and <span class="glow">biotechnology</span>.
+                </h1>
+                <p class="hero-text reveal d3">
+                    Our lab combines synthetic and evolutionary biology to study both fundamental
+                    and applied questions using microorganisms. We design biological systems with
+                    state-of-the-art synthetic tools and pair them with experimental and directed
+                    evolution — to understand why a given phenomenon arises, and how it can be
+                    harnessed to solve real-world problems.
+                </p>
+                <a href="mailto:zheren.zhang@qmul.ac.uk" class="btn reveal d3">Get in touch</a>
+            </div>
+            <div class="hero-visual reveal d3">
+                <img src="hero.png" alt="From synthetic design to fundamental and applied questions">
+            </div>
+        </div>
+    </header>
+
+    <section id="videos" class="alt">
+        <div class="container">
+            <div class="section-head">
+                <span class="mono">// 00 — Research highlights</span>
+                <h2>The Story Behind the Paper</h2>
+            </div>
+            <div class="video-wrap">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID"
+                        title="Research video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+            <div class="video-links">
+                <a href="#pub-2022-meltdown" class="video-link">→ Read the paper: Nature Communications 2022</a>
+                <a href="#pub-2020-divisionoflabor" class="video-link">→ Read the paper: Science Advances 2020</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="research">
+        <div class="container">
+            <div class="section-head">
+                <span class="mono">// 01 — Focus areas</span>
+                <h2>Research Directions</h2>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <div class="num">001</div>
+                    <h3>Rules of Microbial Division of Labour</h3>
+                    <p>We investigate how and why division of labour emerges among microbes, and the conditions that favour cooperation over generalist strategies. Building on our work describing division-of-labour traits in nature, we now use synthetic biology to reshape these systems and probe their underlying principles.</p>
+                </div>
+                <div class="card">
+                    <div class="num">002</div>
+                    <h3>Division of Labour for Biotechnology</h3>
+                    <p>Industrial bioprocesses rely on either single strains or multi-strain consortia, and each strategy carries its own limitations. Working with industrial partners, we apply evolutionary theory to understand and overcome these challenges in real-world production settings.</p>
+                </div>
+                <div class="card">
+                    <div class="num">003</div>
+                    <h3>AI-Guided Design Meets Evolution</h3>
+                    <p>We combine AI-guided molecular design with experimental and directed evolution to test long-standing questions in evolutionary biology. This lets us build tailored biological systems and use them as precise tools to probe how living systems adapt.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="alt">
+        <div class="container">
+            <div class="section-head">
+                <span class="mono">// 02 — People</span>
+                <h2>Team</h2>
+            </div>
+            <div class="team-grid">
+                <div class="member">
+                    <div class="avatar">
+                        <img src="zheren.jpg" alt="Zheren Zhang">
+                    </div>
+                    <div class="name">Zheren Zhang</div>
+                    <div class="role">Principal Investigator · Lecturer in Biotechnology</div>
+                </div>
+                <div class="member">
+                    <div class="avatar">JM</div>
+                    <div class="name">Jakub Medrek</div>
+                    <div class="role">MSc Student</div>
+                </div>
+                <div class="member">
+                    <div class="avatar">SB</div>
+                    <div class="name">Stuti Banerjee</div>
+                    <div class="role">MSc Student</div>
+                </div>
+                <div class="member">
+                    <div class="avatar">NP</div>
+                    <div class="name">Nandini Pandey</div>
+                    <div class="role">MSc Student</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications">
+        <div class="container">
+            <div class="section-head">
+                <span class="mono">// 03 — Selected work</span>
+                <h2>Publications</h2>
+            </div>
+            <div class="pub-list">
+
+                <div class="pub" id="pub-2025-collateral">
+                    <div class="venue">bioRxiv · Preprint · 2025</div>
+                    <div class="title">Divergent spontaneous antibiotic-resistance evolution confers reciprocal and exploitable collateral sensitivity effects</div>
+                    <div class="authors">A. Liakopoulos, S. T. Tandar, I. V. Hoogendijk, E. Fragkiskou, <strong>Z. Zhang</strong>, B. Vriesendorp, L. B. S. Aulin, J. G. C. van Hasselt, D. E. Rozen</div>
+                    <a href="https://doi.org/10.1101/2025.09.22.677096" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                </div>
+
+                <div class="pub" id="pub-2022-meltdown">
+                    <div class="venue">Nature Communications · 2022</div>
+                    <div class="title">Mutational meltdown of putative microbial altruists in <em>Streptomyces coelicolor</em> colonies</div>
+                    <div class="authors"><strong>Z. Zhang</strong>, S. Shitut, B. Claushuis, D. Claessen, D. E. Rozen</div>
+                    <a href="https://doi.org/10.1038/s41467-022-29924-y" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                </div>
+
+                <div class="pub" id="pub-2020-divisionoflabor">
+                    <div class="venue">Science Advances · 2020</div>
+                    <div class="title">Antibiotic production in <em>Streptomyces</em> is organized by a division of labor through terminal genomic differentiation</div>
+                    <div class="authors"><strong>Z. Zhang</strong>, C. Du, F. de Barsy, M. Liem, A. Liakopoulos, G. P. van Wezel, Y. H. Choi, D. Claessen, D. E. Rozen</div>
+                    <a href="https://doi.org/10.1126/sciadv.aay5781" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                </div>
+
+                <div class="pub" id="pub-2020-kitasatospora">
+                    <div class="venue">Antonie van Leeuwenhoek · 2020</div>
+                    <div class="title">Genome rearrangements and megaplasmid loss in the filamentous bacterium <em>Kitasatospora viridifaciens</em> are associated with protoplast formation and regeneration</div>
+                    <div class="authors">K. Ramijan, <strong>Z. Zhang</strong>, G. P. van Wezel, D. Claessen</div>
+                    <a href="https://doi.org/10.1007/s10482-020-01393-7" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                </div>
+
+                <div class="pub" id="pub-2018-cellwalldeficient">
+                    <div class="venue">Nature Communications · 2018</div>
+                    <div class="title">Stress-induced formation of cell wall-deficient cells in filamentous actinomycetes</div>
+                    <div class="authors">K. Ramijan, E. Ultee, J. Willemse, <strong>Z. Zhang</strong>, J. A. J. Wondergem, A. van der Meij, D. Heinrich, A. Briegel, G. P. van Wezel, D. Claessen</div>
+                    <a href="https://doi.org/10.1038/s41467-018-07560-9" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                </div>
+
+                <div class="pub" id="pub-2017-nocostresistance">
+                    <div class="venue">The ISME Journal · 2017</div>
+                    <div class="title">The evolution of no-cost resistance at sub-MIC concentrations of streptomycin in <em>Streptomyces coelicolor</em></div>
+                    <div class="authors">S. Westhoff, T. M. van Leeuwe, O. Qachach, <strong>Z. Zhang</strong>, G. P. van Wezel, D. E. Rozen</div>
+                    <a href="https://doi.org/10.1038/ismej.2016.194" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                </div>
+
+                <div class="pub" id="pub-2016-divisionsoflabor">
+                    <div class="venue">Frontiers in Microbiology · 2016</div>
+                    <div class="title">Understanding microbial divisions of labor</div>
+                    <div class="authors"><strong>Z. Zhang</strong>, D. Claessen, D. E. Rozen</div>
+                    <a href="https://doi.org/10.3389/fmicb.2016.02070" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                </div>
+
+                <div class="pub" id="pub-2013-pigoatp">
+                    <div class="venue">Xenobiotica · 2013</div>
+                    <div class="title">Cloning and functional characterization of the pig (<em>Sus scrofa</em>) organic anion transporting polypeptide 1a2</div>
+                    <div class="authors">Y. Yu, X. Liu, <strong>Z. Zhang</strong>, Y. Xiao, M. Hong</div>
+                    <a href="https://doi.org/10.3109/00498254.2012.760762" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                </div>
+
+                <div class="pub" id="pub-2013-oatp1a2">
+                    <div class="venue">Drug Metabolism and Disposition · 2013</div>
+                    <div class="title">Identification of multiple binding sites for substrate transport in bovine organic anion transporting polypeptide 1a2</div>
+                    <div class="authors">X. Liu, J. Huang, Y. Sun, K. Zhan, <strong>Z. Zhang</strong>, M. Hong</div>
+                    <a href="https://doi.org/10.1124/dmd.112.047910" target="_blank" rel="noopener" class="pub-link">DOI</a>
+                </div>
+
+            </div>
+
+            <div style="margin-top: 36px;">
+                <a href="https://scholar.google.com/citations?user=-axB_zoAAAAJ&hl=en" target="_blank" rel="noopener" class="btn">View all on Google Scholar →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Zheren Lab — Department of Biochemistry, School of Biological and Behavioural Sciences, Queen Mary University of London</p>
+            <p>Office: G.E. Fogg Building &amp; Room 4.34 · <a href="mailto:zheren.zhang@qmul.ac.uk">zheren.zhang@qmul.ac.uk</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
