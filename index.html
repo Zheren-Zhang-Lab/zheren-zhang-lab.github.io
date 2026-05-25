@@ -333,6 +333,12 @@
             background: var(--accent-dim);
             transform: translateY(-2px);
         }
+        .video-note {
+            margin-top: 16px;
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            font-style: italic;
+        }
 
         /* highlight a publication when linked to */
         .pub:target {
@@ -424,11 +430,12 @@
                 <h2>The Story Behind the Paper</h2>
             </div>
             <div class="video-wrap">
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID"
+                <iframe src="https://www.youtube.com/embed/NAurEBm6OWM"
                         title="Research video"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
             </div>
+            <p class="video-note">This video was AI-generated as an accessible summary. For accurate scientific detail, please read the original papers below.</p>
             <div class="video-links">
                 <a href="#pub-2022-meltdown" class="video-link">→ Read the paper: Nature Communications 2022</a>
                 <a href="#pub-2020-divisionoflabor" class="video-link">→ Read the paper: Science Advances 2020</a>
