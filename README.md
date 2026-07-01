@@ -4,7 +4,7 @@ Source code for the website of the Zheren Lab, Department of Biochemistry,
 School of Biological and Behavioural Sciences, Queen Mary University of London.
 
 The lab combines synthetic and evolutionary biology to study microbial
-division of labour — for both fundamental discovery and biotechnology.
+division of labour and beyond — for both fundamental discovery and biotechnology.
 
 🔗 **Live site:** https://zherenzhanglab.github.io
 
