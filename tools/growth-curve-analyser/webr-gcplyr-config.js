@@ -1,0 +1,9 @@
+export const WEBR_VERSION = "0.6.0";
+export const GCPLYR_VERSION = "1.12.0";
+export const WEBR_MODULE_URL = `https://webr.r-wasm.org/v${WEBR_VERSION}/webr.mjs`;
+export const WEBR_R_VERSION = "4.6";
+export const WEBR_PACKAGE_REPOSITORY = `https://repo.r-wasm.org`;
+export const GCPLYR_ARTIFACT_URL = `${WEBR_PACKAGE_REPOSITORY}/bin/emscripten/contrib/${WEBR_R_VERSION}/gcplyr_${GCPLYR_VERSION}.tgz`;
+export const GCPLYR_ARTIFACT_SHA256 = "4a7bd3377797f5ddfe74a75f5432b1b8d10a75293453f3591e097e71d37bb7bc";
+export const GCPLYR_RUNTIME_DEPENDENCIES = Object.freeze(["dplyr", "rlang", "tidyr"]);
+export const GCPLYR_CITATION = "Blazanin M. gcplyr: an R package for microbial growth curve data analysis. BMC Bioinformatics 25, 232 (2024).";

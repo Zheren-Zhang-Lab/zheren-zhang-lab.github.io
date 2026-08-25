@@ -290,6 +290,14 @@
         }
         .pub-link:hover { background: var(--accent-dim); }
 
+        /* ---------- TOOLS ---------- */
+        .tool-card {
+            max-width: 720px;
+        }
+        .tool-card .btn {
+            margin-top: 22px;
+        }
+
         /* ---------- VIDEO ---------- */
         .video-wrap {
             position: relative;
@@ -359,12 +367,19 @@
 
         /* ---------- RESPONSIVE ---------- */
         @media (max-width: 860px) {
+            nav .container { flex-wrap: wrap; gap: 12px 20px; }
             .hero-grid { grid-template-columns: 1fr; }
             .hero-visual { max-width: 280px; }
             .cards { grid-template-columns: 1fr; }
             .team-grid { grid-template-columns: repeat(2, 1fr); }
             h1.hero-title { font-size: 2.2rem; }
             .nav-links { gap: 18px; }
+        }
+
+        @media (max-width: 560px) {
+            nav .container { align-items: flex-start; }
+            .nav-links { gap: 8px 14px; flex-wrap: wrap; }
+            .nav-links a { font-size: 0.82rem; }
         }
 
         /* entrance animation */
@@ -390,6 +405,7 @@
                 <a href="#home">Home</a>
                 <a href="#videos">Videos</a>
                 <a href="#research">Research</a>
+                <a href="#tools">Tools</a>
                 <a href="#team">Team</a>
                 <a href="#publications">Publications</a>
             </div>
@@ -463,10 +479,26 @@
             </div>
         </div>
     </section>
+
+    <section id="tools" class="alt">
+        <div class="container">
+            <div class="section-head">
+                <span class="mono">// 02 — Software</span>
+                <h2>Tools</h2>
+            </div>
+            <div class="card tool-card">
+                <div class="num">001</div>
+                <h3>Growth Curve Analyser</h3>
+                <p>Analyse BMG LABTECH and Tecan i-control plate-reader data in your browser. Import measurements and plate metadata, apply blank correction, explore replicate-level curves, and estimate growth parameters without uploading experimental data.</p>
+                <a href="tools/growth-curve-analyser/" class="btn">Open Growth Curve Analyser →</a>
+            </div>
+        </div>
+    </section>
+
 <section id="team" class="alt">
         <div class="container">
             <div class="section-head">
-                <span class="mono">// 02 — People</span>
+                <span class="mono">// 03 — People</span>
                 <h2>Team</h2>
             </div>
             <div class="team-grid">
@@ -505,7 +537,7 @@
     <section id="publications">
         <div class="container">
             <div class="section-head">
-                <span class="mono">// 03 — Selected work</span>
+                <span class="mono">// 04 — Selected work</span>
                 <h2>Publications</h2>
             </div>
             <div class="pub-list">
