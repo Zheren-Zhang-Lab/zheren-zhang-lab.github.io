@@ -16,3 +16,11 @@
 - **Commit:** This integration commit (`Add Growth Curve Analyser v1.0.0`).
 - **Checks:** Local direct-path and refresh tests passed at `http://127.0.0.1:4173/tools/growth-curve-analyser/`. Synthetic BMG and Tecan imports, matching metadata validation, plate mapping, blank correction, plotting, and webR/gcplyr parameter analysis passed; desktop and 390 px layouts had no horizontal overflow.
 - **Follow-up:** Confirm the deployed GitHub Pages URL after the owner pushes the commit. The local browser harness could not automate the metadata input's programmatic file-picker handoff, so repeat that single UI upload manually before pushing; the workbook itself and its import/processing path validated successfully.
+
+## 2026-08-25 — Persistent documentation rules
+
+- **Change:** Added repository-level Codex instructions for maintaining the website development and methodology records.
+- **Purpose:** Make documentation review part of completing future substantial website tasks.
+- **Areas affected:** `AGENTS.md`, `docs/development-log.md`, and `docs/methodology-review.md`.
+- **Commit:** Not yet committed.
+- **Follow-up:** None.
