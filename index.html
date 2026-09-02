@@ -212,13 +212,13 @@
         /* team + publications */
         .alt { background: var(--bg-soft); border-block: 1px solid var(--border); }
 
-        /* #tools and #team are both .alt and sit back-to-back with an identical flat
-           fill, so the section boundary between them showed no visible tone change.
-           #team gets a soft top-to-bottom blend between the site's existing two tones
-           instead, so the seam is visibly different immediately (bg vs tools' bg-soft)
-           while still easing into a tone that keeps the following section (publications)
-           correctly alternating too. No new colours introduced. */
-        #team { background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%); }
+        /* Major sections alternate strictly between the site's two existing tones,
+           Tone A (--bg) and Tone B (--bg-soft): header=A, videos=B (.alt), research=A,
+           tools=B (.alt), team=A, publications=B. #team and #publications need explicit
+           overrides here since #team already carries the shared .alt class (for its
+           border-block) but must render as Tone A, not Tone B. No third tone. */
+        #team { background: var(--bg); }
+        #publications { background: var(--bg-soft); }
 
         .team-grid {
             display: grid;
