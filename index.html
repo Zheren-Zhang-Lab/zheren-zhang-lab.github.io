@@ -41,20 +41,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* subtle background grid texture */
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background-image:
-                linear-gradient(var(--border) 1px, transparent 1px),
-                linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 64px 64px;
-            opacity: 0.25;
-            pointer-events: none;
-            z-index: 0;
-        }
-
         .container {
             max-width: 1080px;
             margin: 0 auto;
@@ -225,6 +211,14 @@
 
         /* team + publications */
         .alt { background: var(--bg-soft); border-block: 1px solid var(--border); }
+
+        /* #tools and #team are both .alt and sit back-to-back with an identical flat
+           fill, so the section boundary between them showed no visible tone change.
+           #team gets a soft top-to-bottom blend between the site's existing two tones
+           instead, so the seam is visibly different immediately (bg vs tools' bg-soft)
+           while still easing into a tone that keeps the following section (publications)
+           correctly alternating too. No new colours introduced. */
+        #team { background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%); }
 
         .team-grid {
             display: grid;
