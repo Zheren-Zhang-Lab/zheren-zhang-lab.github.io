@@ -19,21 +19,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Chinese traditional colour system — Morandi (teal / blue-grey / dusty-pink)
-               direction. See zherenzhanglab-website-private-docs/design/design-decisions.md */
-            --bg:               #12191a;
-            --bg-soft:          #182122;
-            --panel:            #1e2a2a;
-            --border:           #3a4a48;
-            --text:             #dce3e1;
-            --text-dim:         #8fa39d;
-            --accent:           #a1afc9; /* 蓝灰色 lán huī sè — labels/links/nav companion */
-            --accent-dim:       #2d534b; /* derived, darker 铜绿 — buttons/borders/glow */
-            --accent-brand:     #549688; /* 铜绿 tóng lǜ — primary brand/hover/focus */
-            --accent-water:     #88ada6; /* 水色 shuǐ sè — secondary glow tone */
-            --accent-pink:      #e4c6d0; /* 藕荷色 ǒu hé sè — sparing dusty-pink accent */
-            --accent-pink-soft: #edd1d8; /* 藕色 ǒu sè — softest touch, footer/glow */
-            --btn-text:         #f3f6f4;
+            /* Chinese traditional colour system — 苍色 (cāng) family direction.
+               See zherenzhanglab-website-private-docs/design/design-decisions.md */
+            --bg:           #0e1417;
+            --bg-soft:      #131b1f;
+            --panel:        #1a252b;
+            --border:       #395260; /* 苍黑 cāng hēi */
+            --text:         #d1d9e0; /* 苍白 cāng bái */
+            --text-dim:     #75878a; /* 苍色 cāng sè */
+            --accent:       #7397ab; /* 苍青 cāng qīng — labels/links/nav/hover/brand */
+            --accent-dim:   #273841; /* derived, darker 苍黑 — button fills */
+            --accent-brand: #7397ab; /* 苍青 cāng qīng — same dominant tone, kept as a
+                                         separate name for decorative/emphasis usage */
+            --btn-text:     #eef2f3;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -48,15 +46,15 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ambient Morandi background wash — soft, diffused, no pattern/lines */
+        /* ambient 苍色-family background wash — soft, diffused, no pattern/lines */
         body::before {
             content: "";
             position: fixed;
             inset: 0;
             background:
-                radial-gradient(ellipse 900px 700px at 8% -10%, var(--accent-brand) 0%, transparent 60%),
-                radial-gradient(ellipse 900px 700px at 108% 55%, var(--accent-pink) 0%, transparent 60%),
-                radial-gradient(ellipse 800px 700px at 25% 115%, var(--accent-water) 0%, transparent 60%);
+                radial-gradient(ellipse 900px 700px at 8% -10%, var(--accent) 0%, transparent 60%),
+                radial-gradient(ellipse 900px 700px at 108% 55%, var(--border) 0%, transparent 60%),
+                radial-gradient(ellipse 800px 700px at 25% 115%, var(--text-dim) 0%, transparent 60%);
             opacity: 0.08;
             filter: blur(70px);
             pointer-events: none;
@@ -125,9 +123,9 @@
             right: -120px;
             width: 420px;
             height: 420px;
-            background: radial-gradient(circle, var(--accent-brand) 0%, var(--accent-water) 45%, var(--accent-pink) 75%, transparent 100%);
-            opacity: 0.28;
-            filter: blur(44px);
+            background: radial-gradient(circle, var(--accent) 0%, var(--text-dim) 45%, var(--border) 75%, transparent 100%);
+            opacity: 0.25;
+            filter: blur(46px);
         }
         .hero-grid {
             display: grid;
@@ -383,7 +381,7 @@
             font-family: 'IBM Plex Mono', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', monospace;
             font-size: 0.85rem;
             letter-spacing: 0.04em;
-            color: var(--accent-pink);
+            color: var(--accent);
         }
         .footer-quote .quote-source {
             font-family: 'IBM Plex Mono', monospace;
@@ -651,8 +649,8 @@
 
     <footer>
         <div class="container footer-quote">
-            <p class="quote-cn">出淤泥而不染，濯清涟而不妖。</p>
-            <p class="quote-source">— Zhou Dunyi, <em>On the Love of the Lotus</em> ("爱莲说")</p>
+            <p class="quote-cn">天苍苍，野茫茫，风吹草低见牛羊。</p>
+            <p class="quote-source">— <em>Song of the Chile</em> (敕勒歌), Northern Dynasties folk song</p>
         </div>
         <div class="container">
             <p>© 2026 Zheren Lab — Department of Biochemistry, School of Biological and Behavioural Sciences, <a href="https://www.qmul.ac.uk/sbbs/staff/zheren-zhang.html" target="_blank" rel="noopener">Queen Mary University of London</a></p>
