@@ -20,16 +20,18 @@
     <style>
         :root {
             /* Chinese traditional colour system — 苍色 (cāng) family direction.
+               Main background is 苍黑 cāng hēi, sourced directly from the local
+               chinese-colors reference repo (previously used only as --border).
                See zherenzhanglab-website-private-docs/design/design-decisions.md */
-            --bg:           #0e1417;
-            --bg-soft:      #131b1f;
-            --panel:        #1a252b;
-            --border:       #395260; /* 苍黑 cāng hēi */
+            --bg:           #395260; /* 苍黑 cāng hēi — main page background */
+            --bg-soft:      #131c21; /* derived, near-black — alt-section tone */
+            --panel:        #0a0f12; /* derived, near-black — card/panel surface */
+            --border:       #4d6f82; /* derived, lightened 苍黑 — dividers */
             --text:         #d1d9e0; /* 苍白 cāng bái */
-            --text-dim:     #75878a; /* 苍色 cāng sè */
-            --accent:       #7397ab; /* 苍青 cāng qīng — labels/links/nav/hover/brand */
-            --accent-dim:   #273841; /* derived, darker 苍黑 — button fills */
-            --accent-brand: #7397ab; /* 苍青 cāng qīng — same dominant tone, kept as a
+            --text-dim:     #bac3c4; /* derived, lightened 苍色 — kept legible on --bg */
+            --accent:       #baccd6; /* derived, lightened 苍青 — kept legible on --bg */
+            --accent-dim:   #17222a; /* derived, near-black — button fills */
+            --accent-brand: #baccd6; /* same dominant tone as --accent, kept as a
                                          separate name for decorative/emphasis usage */
             --btn-text:     #eef2f3;
         }
@@ -82,7 +84,7 @@
             position: sticky;
             top: 0;
             z-index: 50;
-            background: rgba(18, 25, 26, 0.85);
+            background: rgba(57, 82, 96, 0.85);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
         }
@@ -173,7 +175,7 @@
         }
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(84, 150, 136, 0.3);
+            box-shadow: 0 8px 24px rgba(186, 204, 214, 0.3);
         }
 
         /* ---------- SECTIONS ---------- */
