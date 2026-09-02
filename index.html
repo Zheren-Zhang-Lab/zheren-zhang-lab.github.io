@@ -48,16 +48,17 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* subtle background grid texture */
+        /* ambient Morandi background wash — soft, diffused, no pattern/lines */
         body::before {
             content: "";
             position: fixed;
             inset: 0;
-            background-image:
-                linear-gradient(var(--border) 1px, transparent 1px),
-                linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 64px 64px;
-            opacity: 0.25;
+            background:
+                radial-gradient(ellipse 900px 700px at 8% -10%, var(--accent-brand) 0%, transparent 60%),
+                radial-gradient(ellipse 900px 700px at 108% 55%, var(--accent-pink) 0%, transparent 60%),
+                radial-gradient(ellipse 800px 700px at 25% 115%, var(--accent-water) 0%, transparent 60%);
+            opacity: 0.08;
+            filter: blur(70px);
             pointer-events: none;
             z-index: 0;
         }
@@ -155,7 +156,6 @@
             margin-bottom: 22px;
         }
         h1.hero-title .glow { color: var(--accent-brand); }
-        h1.hero-title .glow-2 { color: var(--accent-pink); }
         .hero-text {
             color: var(--text-dim);
             font-size: 1.08rem;
@@ -446,7 +446,7 @@
             <div>
                 <span class="mono hero-tag reveal d1">// Synthetic &amp; Evolutionary Biology</span>
                 <h1 class="hero-title reveal d2">
-                    Designing evolution for <span class="glow">discovery</span> and <span class="glow glow-2">biotechnology</span>.
+                    Designing evolution for <span class="glow">discovery</span> and <span class="glow">biotechnology</span>.
                 </h1>
                 <p class="hero-text reveal d3">
                     Our lab combines synthetic and evolutionary biology to study both fundamental
