@@ -26,6 +26,11 @@
       @media (prefers-reduced-motion: no-preference) {
         #dna { animation: gentle-emphasis 7s ease-in-out infinite; }
         #design_icon { animation: gentle-emphasis 7s ease-in-out 0.8s infinite; }
+        #design_icon > g {
+          transform-box: view-box;
+          transform-origin: 279px 699px;
+          animation: pencil-edit 5.2s ease-in-out infinite;
+        }
         #arrow_1 { animation: arrow-emphasis 3.8s ease-in-out 0.5s infinite; }
         #bacterium { animation: centre-emphasis 7s ease-in-out 1.3s infinite; }
         #plasmid_top { animation: module-emphasis 5.5s ease-in-out 0.4s infinite; }
@@ -63,6 +68,11 @@
       @keyframes gentle-emphasis {
         0%, 100% { opacity: 0.9; }
         45%, 60% { opacity: 1; }
+      }
+      @keyframes pencil-edit {
+        0%, 100% { transform: rotate(38deg) translate(0, 0); }
+        45% { transform: rotate(36.8deg) translate(-1px, 0.8px); }
+        70% { transform: rotate(37.5deg) translate(-0.4px, 0.3px); }
       }
       @keyframes centre-emphasis {
         0%, 100% { opacity: 0.92; }
@@ -126,23 +136,23 @@
       <path d="M114 449 H188"/>
       <path d="M124 475 H178"/>
       <path d="M139 500 H163"/>
-      <path d="M125 532 H177"/>
-      <path d="M109 559 H192"/>
-      <path d="M99 586 H203"/>
-      <path d="M95 612 H207"/>
+      <path d="M139 532 H165"/>
+      <path d="M119 559 H184"/>
+      <path d="M106 586 H197"/>
+      <path d="M101 612 H202"/>
       <path d="M100 639 H202"/>
       <path d="M112 665 H190"/>
       <path d="M127 691 H175"/>
-      <path d="M140 718 H162"/>
-      <path d="M126 749 H177"/>
+      <path d="M149 718 H154"/>
+      <path d="M132 749 H171"/>
       <path d="M112 777 H191"/>
       <path d="M105 803 H198"/>
     </g>
 
     <g id="design_icon">
       <circle class="line" cx="244" cy="727" r="78" fill="#0a0e14"/>
-      <circle class="line dash" cx="244" cy="727" r="45"/>
-      <path class="line" d="M244 682 A45 45 0 1 0 286 742"/>
+      <path class="line" d="M286.3 711.6 A45 45 0 1 1 259.4 684.7"/>
+      <path class="fine" d="M278.8 714.3 A37 37 0 1 1 256.7 692.2"/>
       <g class="line" transform="rotate(38 279 699)">
         <path d="M273 661 H286 V714 L280 726 L273 714 Z" fill="#0a0e14"/>
         <path d="M273 672 H286"/>
@@ -169,13 +179,11 @@
       </g>
       <g id="plasmid_top" transform="translate(582 581)">
         <circle class="line" r="30"/>
-        <circle class="line dash" r="22"/>
-        <path class="fine" d="M0 -30 V-22 M21 -21 L15 -15 M30 0 H22 M21 21 L15 15 M0 30 V22 M-21 21 L-15 15 M-30 0 H-22 M-21 -21 L-15 -15"/>
+        <circle class="fine" r="22"/>
       </g>
       <g id="plasmid_bottom" transform="translate(478 606)">
         <circle class="line" r="31"/>
-        <circle class="line dash" r="23"/>
-        <path class="fine" d="M0 -31 V-23 M22 -22 L16 -16 M31 0 H23 M22 22 L16 16 M0 31 V23 M-22 22 L-16 16 M-31 0 H-23 M-22 -22 L-16 -16"/>
+        <circle class="fine" r="23"/>
       </g>
       <g id="gear" class="line" transform="translate(530 579)">
         <path d="M-8 -25 L-2 -26 L1 -34 L10 -31 L9 -23 L15 -19 L22 -23 L28 -15 L22 -9 L24 -2 L33 1 L31 10 L22 9 L18 15 L23 22 L15 28 L9 22 L2 24 L-1 33 L-10 31 L-9 22 L-15 18 L-22 23 L-28 15 L-22 9 L-24 2 L-33 -1 L-31 -10 L-22 -9 L-18 -15 L-23 -22 L-15 -28 Z" fill="#0a0e14"/>
@@ -260,10 +268,14 @@
 
       <g id="earth" transform="translate(1085 725)">
         <circle r="68" fill="#0a0e14"/>
-        <path class="fine" d="M-50 -46 L-34 -44 L-24 -35 L-29 -22 L-17 -12 L-19 1 L-35 4 L-45 -8 L-60 -11"/>
-        <path class="fine" d="M1 -66 L12 -53 L23 -50 L29 -36 L43 -31 L51 -17 L42 -6 L25 -9 L16 0 L9 15 L-2 15 L-12 3 L-10 -12 L-18 -22 L-12 -38"/>
-        <path class="fine" d="M-48 29 L-30 24 L-18 31 L-7 43 L-11 61 L-22 67"/>
-        <path class="fine" d="M28 32 L42 25 L57 31"/>
+        <path class="fine" style="stroke-width:1.2; opacity:0.25" d="M0 -67 V67"/>
+        <path class="fine" style="stroke-width:1.2; opacity:0.25" d="M-42 -53 C-22 -28 -22 28 -42 53"/>
+        <path class="fine" style="stroke-width:1.2; opacity:0.25" d="M42 -53 C22 -28 22 28 42 53"/>
+        <path class="fine" style="stroke-width:1.2; opacity:0.25" d="M-68 4 C-34 1 34 1 68 4"/>
+        <path class="fine" style="fill:#0a0e14" d="M-60 -31 Q-56 -42 -46 -47 L-38 -52 L-30 -55 L-23 -52 L-18 -47 L-14 -42 L-7 -40 L-9 -34 L-15 -30 L-17 -25 L-21 -19 L-24 -13 L-27 -8 L-31 -10 L-36 -7 L-40 -10 L-46 -11 L-51 -16 L-58 -18 L-63 -23 Z"/>
+        <path class="fine" style="fill:#0a0e14" d="M-36 -7 L-31 -5 L-28 -1 L-23 1 L-19 5 L-15 9 L-16 15 L-20 24 L-22 34 L-28 46 L-34 60 L-39 49 L-43 38 L-44 28 L-49 20 L-53 13 L-56 7 L-52 2 L-47 -2 L-42 -5 Z"/>
+        <path class="fine" style="fill:#0a0e14" d="M17 -44 L23 -49 L29 -46 L30 -40 L36 -39 L39 -34 L46 -32 L52 -27 L54 -22 L49 -19 L43 -21 L39 -17 L34 -18 L30 -14 L25 -16 L23 -22 L18 -24 L14 -30 L12 -36 Z M8 -35 L6 -30 L8 -25 L12 -27 L13 -33 Z M-5 -48 L1 -54 L7 -51 L9 -45 L5 -39 L-1 -38 L-6 -42 Z"/>
+        <path class="fine" style="fill:#0a0e14" d="M20 -13 L29 -17 L37 -14 L42 -9 L41 -3 L37 4 L34 13 L30 21 L24 30 L18 38 L12 31 L8 23 L6 14 L2 6 L2 -2 L7 -9 L13 -13 Z"/>
       </g>
 
       <g id="leaf" class="line">
