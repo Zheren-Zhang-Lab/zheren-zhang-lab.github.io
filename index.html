@@ -119,11 +119,10 @@
             border-radius: 8px;
             overflow: hidden;
         }
-        .hero-visual img {
+        .hero-visual object {
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: cover;
         }
         .hero-tag { margin-bottom: 22px; display: inline-block; }
         h1.hero-title {
@@ -444,7 +443,9 @@
                 <a href="mailto:zheren.zhang@qmul.ac.uk" class="btn reveal d3">Get in touch</a>
             </div>
             <div class="hero-visual reveal d3">
-                <img src="images/hero.png" alt="From synthetic design to fundamental and applied questions">
+                <object type="image/svg+xml" data="images/hero.svg" aria-label="From synthetic design to fundamental and applied questions">
+                    <img src="images/hero.svg" alt="From synthetic design to fundamental and applied questions">
+                </object>
             </div>
         </div>
     </header>

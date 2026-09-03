@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1254" height="1254" viewBox="0 0 1254 1254"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Synthetic biology design and outcomes</title>
+  <desc id="desc">Scientific line illustration showing DNA design, an engineered bacterium, biotechnology products, and pollutant degradation.</desc>
+
+  <defs>
+    <filter id="warm_glow" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4.5" result="blur"/>
+      <feFlood flood-color="#eacd76" flood-opacity="0.18" result="colour"/>
+      <feComposite in="colour" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .line { fill: none; stroke: #eacd76; stroke-width: 3.4; stroke-linecap: round; stroke-linejoin: round; }
+      .fine { fill: none; stroke: #eacd76; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+      .bold { fill: none; stroke: #eacd76; stroke-width: 4.2; stroke-linecap: round; stroke-linejoin: round; }
+      .dash { stroke-dasharray: 9 9; }
+      .dot { fill: #0a0e14; stroke: #eacd76; stroke-width: 3.2; }
+      .solid { fill: #eacd76; stroke: none; }
+
+      @media (prefers-reduced-motion: no-preference) {
+        #dna { animation: gentle-emphasis 7s ease-in-out infinite; }
+        #design_icon { animation: gentle-emphasis 7s ease-in-out 0.8s infinite; }
+        #arrow_1 { animation: arrow-emphasis 3.8s ease-in-out 0.5s infinite; }
+        #bacterium { animation: centre-emphasis 7s ease-in-out 1.3s infinite; }
+        #plasmid_top { animation: module-emphasis 5.5s ease-in-out 0.4s infinite; }
+        #plasmid_bottom { animation: module-emphasis 5.5s ease-in-out 1.6s infinite; }
+        #gear {
+          transform-origin: 0 0;
+          animation: gear-turn 30s linear infinite, module-emphasis 5.5s ease-in-out 1s infinite;
+        }
+        #arrow_2 { animation: arrow-emphasis 3.8s ease-in-out 1.6s infinite; }
+        #outcome_circle { animation: quiet-emphasis 8s ease-in-out 2s infinite; }
+        #biotech_bacterium { animation: producer-emphasis 11s ease-in-out infinite; }
+        #molecule,
+        #flask,
+        #product_bottle,
+        #product_drop,
+        #pollutant_drop_1,
+        #pollutant_drop_2,
+        #pollutant_drop_3 {
+          transform-box: fill-box;
+          transform-origin: center;
+        }
+        #molecule { animation: product-reveal 11s ease-in-out 0.6s infinite both; }
+        #flask { animation: product-reveal 11s ease-in-out 1.8s infinite both; }
+        #product_bottle { animation: product-reveal 11s ease-in-out 2.4s infinite both; }
+        #product_drop { animation: product-reveal 11s ease-in-out 3s infinite both; }
+        #cleanup_bacterium { animation: cleanup-emphasis 11s ease-in-out 1.2s infinite both; }
+        #pollutant_drop_1 { animation: pollutant-diminish 11s ease-in-out 2.6s infinite both; }
+        #pollutant_drop_2 { animation: pollutant-diminish 11s ease-in-out 3.2s infinite both; }
+        #pollutant_drop_3 { animation: pollutant-diminish 11s ease-in-out 3.8s infinite both; }
+        #earth { animation: remediation-reveal 11s ease-in-out 4.2s infinite both; }
+        #leaf { animation: remediation-reveal 11s ease-in-out 4.7s infinite both; }
+        .dash { animation: dash-drift 22s linear infinite; }
+      }
+
+      @keyframes gentle-emphasis {
+        0%, 100% { opacity: 0.9; }
+        45%, 60% { opacity: 1; }
+      }
+      @keyframes centre-emphasis {
+        0%, 100% { opacity: 0.92; }
+        50% { opacity: 1; }
+      }
+      @keyframes module-emphasis {
+        0%, 100% { opacity: 0.82; }
+        50% { opacity: 1; }
+      }
+      @keyframes arrow-emphasis {
+        0%, 100% { opacity: 0.58; }
+        50% { opacity: 1; }
+      }
+      @keyframes quiet-emphasis {
+        0%, 100% { opacity: 0.9; }
+        50% { opacity: 1; }
+      }
+      @keyframes producer-emphasis {
+        0%, 100% { opacity: 0.88; }
+        8%, 18% { opacity: 1; }
+        30%, 88% { opacity: 0.92; }
+      }
+      @keyframes product-reveal {
+        0%, 8%, 100% { opacity: 0.56; transform: scale(0.985); }
+        22%, 68% { opacity: 1; transform: scale(1); }
+        86% { opacity: 0.72; transform: scale(0.994); }
+      }
+      @keyframes cleanup-emphasis {
+        0%, 100% { opacity: 0.86; }
+        10%, 24% { opacity: 1; }
+        36%, 88% { opacity: 0.91; }
+      }
+      @keyframes pollutant-diminish {
+        0%, 12%, 100% { opacity: 1; transform: scale(1); }
+        38%, 68% { opacity: 0.24; transform: scale(0.92); }
+        84% { opacity: 0.7; transform: scale(0.975); }
+      }
+      @keyframes remediation-reveal {
+        0%, 10%, 100% { opacity: 0.58; }
+        30%, 70% { opacity: 1; }
+        88% { opacity: 0.76; }
+      }
+      @keyframes dash-drift {
+        from { stroke-dashoffset: 0; }
+        to { stroke-dashoffset: -36; }
+      }
+      @keyframes gear-turn {
+        from { transform: translate(530px, 579px) rotate(0deg); }
+        to { transform: translate(530px, 579px) rotate(360deg); }
+      }
+    </style>
+  </defs>
+
+  <rect id="background" width="1254" height="1254" fill="#0a0e14"/>
+
+  <g id="illustration" filter="url(#warm_glow)">
+    <g id="dna" class="line">
+      <path class="bold" d="M98 401 C77 476 153 502 190 559 C226 614 207 665 160 715 C120 758 91 783 99 818"/>
+      <path class="bold" d="M205 402 C226 477 150 503 113 559 C77 615 96 666 143 715 C183 758 212 783 204 819"/>
+      <path d="M109 424 H194"/>
+      <path d="M114 449 H188"/>
+      <path d="M124 475 H178"/>
+      <path d="M139 500 H163"/>
+      <path d="M125 532 H177"/>
+      <path d="M109 559 H192"/>
+      <path d="M99 586 H203"/>
+      <path d="M95 612 H207"/>
+      <path d="M100 639 H202"/>
+      <path d="M112 665 H190"/>
+      <path d="M127 691 H175"/>
+      <path d="M140 718 H162"/>
+      <path d="M126 749 H177"/>
+      <path d="M112 777 H191"/>
+      <path d="M105 803 H198"/>
+    </g>
+
+    <g id="design_icon">
+      <circle class="line" cx="244" cy="727" r="78" fill="#0a0e14"/>
+      <circle class="line dash" cx="244" cy="727" r="45"/>
+      <path class="line" d="M244 682 A45 45 0 1 0 286 742"/>
+      <g class="line" transform="rotate(38 279 699)">
+        <path d="M273 661 H286 V714 L280 726 L273 714 Z" fill="#0a0e14"/>
+        <path d="M273 672 H286"/>
+        <path d="M273 708 H286"/>
+      </g>
+    </g>
+
+    <g id="arrow_1" class="line">
+      <path d="M338 607 H386"/>
+      <path d="M375 596 L387 607 L375 618"/>
+    </g>
+
+    <g id="bacterium" transform="rotate(-45 533 593)">
+      <rect class="line" x="420" y="538" width="226" height="110" rx="55" fill="#0a0e14"/>
+      <g class="fine">
+        <path d="M437 548 L423 531"/><path d="M461 540 L454 520"/><path d="M488 538 L486 517"/>
+        <path d="M516 538 L516 516"/><path d="M544 538 L546 517"/><path d="M572 538 L579 518"/>
+        <path d="M600 541 L611 523"/><path d="M625 553 L643 540"/>
+        <path d="M437 638 L423 655"/><path d="M461 646 L454 666"/><path d="M488 648 L486 669"/>
+        <path d="M516 648 L516 670"/><path d="M544 648 L546 669"/><path d="M572 648 L579 668"/>
+        <path d="M600 645 L611 663"/><path d="M625 633 L643 646"/>
+        <path d="M423 563 L404 553"/><path d="M420 586 L399 582"/><path d="M421 613 L400 619"/>
+        <path d="M643 563 L662 553"/><path d="M646 586 L667 582"/><path d="M645 613 L666 619"/>
+      </g>
+      <g id="plasmid_top" transform="translate(582 581)">
+        <circle class="line" r="30"/>
+        <circle class="line dash" r="22"/>
+        <path class="fine" d="M0 -30 V-22 M21 -21 L15 -15 M30 0 H22 M21 21 L15 15 M0 30 V22 M-21 21 L-15 15 M-30 0 H-22 M-21 -21 L-15 -15"/>
+      </g>
+      <g id="plasmid_bottom" transform="translate(478 606)">
+        <circle class="line" r="31"/>
+        <circle class="line dash" r="23"/>
+        <path class="fine" d="M0 -31 V-23 M22 -22 L16 -16 M31 0 H23 M22 22 L16 16 M0 31 V23 M-22 22 L-16 16 M-31 0 H-23 M-22 -22 L-16 -16"/>
+      </g>
+      <g id="gear" class="line" transform="translate(530 579)">
+        <path d="M-8 -25 L-2 -26 L1 -34 L10 -31 L9 -23 L15 -19 L22 -23 L28 -15 L22 -9 L24 -2 L33 1 L31 10 L22 9 L18 15 L23 22 L15 28 L9 22 L2 24 L-1 33 L-10 31 L-9 22 L-15 18 L-22 23 L-28 15 L-22 9 L-24 2 L-33 -1 L-31 -10 L-22 -9 L-18 -15 L-23 -22 L-15 -28 Z" fill="#0a0e14"/>
+        <circle r="11"/>
+      </g>
+    </g>
+
+    <g id="arrow_2" class="line">
+      <path d="M656 607 H702"/>
+      <path d="M691 596 L703 607 L691 618"/>
+    </g>
+
+    <g id="outcome_circle">
+      <circle class="line" cx="970" cy="606" r="260"/>
+      <path class="fine dash" d="M970 383 V830"/>
+    </g>
+
+    <g id="biotech_outcome" class="line">
+      <g id="biotech_bacterium" transform="rotate(-45 855 482)">
+        <rect x="798" y="453" width="114" height="58" rx="29" fill="#0a0e14"/>
+        <g class="fine">
+          <path d="M811 453 V442 M831 453 V440 M851 453 V442 M871 453 V440 M891 453 V442"/>
+          <path d="M811 511 V522 M831 511 V524 M851 511 V522 M871 511 V524 M891 511 V522"/>
+          <path d="M800 466 L789 459 M798 481 H786 M800 497 L789 504 M910 466 L921 459 M912 481 H924 M910 497 L921 504"/>
+        </g>
+        <circle class="dot" cx="826" cy="482" r="7"/>
+        <circle class="dot" cx="850" cy="482" r="7"/>
+        <circle class="dot" cx="875" cy="482" r="7"/>
+        <circle class="dot" cx="899" cy="482" r="7"/>
+      </g>
+
+      <path d="M814 542 C793 557 791 584 796 611"/>
+      <path d="M787 599 L797 613 L804 597"/>
+
+      <g id="molecule" class="fine">
+        <path d="M862 574 L883 562 L904 574 V598 L883 610 L862 598 Z"/>
+        <path d="M904 574 L926 562 L945 573"/>
+        <path d="M904 598 L926 611"/>
+        <path d="M862 598 L862 622"/>
+        <circle class="dot" cx="883" cy="550" r="6"/>
+        <circle class="dot" cx="947" cy="562" r="6"/>
+        <circle class="dot" cx="948" cy="610" r="6"/>
+        <circle class="dot" cx="862" cy="634" r="6"/>
+      </g>
+
+      <g id="flask">
+        <path d="M784 639 H807 M788 639 V663 L770 705 Q768 712 777 714 H814 Q823 712 820 705 L802 663 V639" fill="#0a0e14"/>
+        <path class="fine" d="M779 698 C790 692 801 703 812 695"/>
+      </g>
+
+      <g id="product_bottle">
+        <path d="M853 674 H884 V685 L891 691 V745 Q891 754 882 754 H855 Q846 754 846 745 V691 L853 685 Z" fill="#0a0e14"/>
+        <path d="M851 675 V666 H886 V675"/>
+        <path d="M863 708 H874 V718 H884 V730 H874 V740 H863 V730 H853 V718 H863 Z"/>
+      </g>
+
+      <path id="product_drop" d="M930 700 C941 716 950 729 950 739 C950 752 941 760 930 760 C918 760 910 752 910 739 C910 729 919 716 930 700 Z" fill="#0a0e14"/>
+    </g>
+
+    <g id="pollution_outcome" class="line">
+      <g id="cleanup_bacterium" transform="rotate(-45 1080 484)">
+        <rect x="1023" y="455" width="114" height="58" rx="29" fill="#0a0e14"/>
+        <g class="fine">
+          <path d="M1036 455 V444 M1056 455 V442 M1076 455 V444 M1096 455 V442 M1116 455 V444"/>
+          <path d="M1036 513 V524 M1056 513 V526 M1076 513 V524 M1096 513 V526 M1116 513 V524"/>
+          <path d="M1025 468 L1014 461 M1023 483 H1011 M1025 499 L1014 506 M1135 468 L1146 461 M1137 483 H1149 M1135 499 L1146 506"/>
+        </g>
+        <circle class="dot" cx="1051" cy="484" r="7"/>
+        <circle class="dot" cx="1075" cy="484" r="7"/>
+        <circle class="dot" cx="1100" cy="484" r="7"/>
+        <circle class="dot" cx="1124" cy="484" r="7"/>
+      </g>
+
+      <path d="M1118 521 C1140 529 1151 548 1154 570"/>
+      <path d="M1145 560 L1155 573 L1162 558"/>
+      <path class="fine dash" d="M1038 550 V592"/>
+      <path class="fine" d="M1030 583 L1038 594 L1046 583"/>
+
+      <path id="pollutant_drop_1" class="fine dash" d="M1033 607 C1044 622 1051 633 1051 643 C1051 654 1043 661 1033 661 C1023 661 1015 654 1015 643 C1015 633 1023 622 1033 607 Z"/>
+      <path id="pollutant_drop_2" class="fine dash" d="M1113 565 C1124 580 1131 591 1131 601 C1131 612 1123 619 1113 619 C1103 619 1095 612 1095 601 C1095 591 1103 580 1113 565 Z"/>
+      <path id="pollutant_drop_3" class="fine dash" d="M1157 606 C1168 621 1175 632 1175 642 C1175 653 1167 660 1157 660 C1147 660 1139 653 1139 642 C1139 632 1147 621 1157 606 Z"/>
+
+      <g id="earth" transform="translate(1085 725)">
+        <circle r="68" fill="#0a0e14"/>
+        <path class="fine" d="M-50 -46 L-34 -44 L-24 -35 L-29 -22 L-17 -12 L-19 1 L-35 4 L-45 -8 L-60 -11"/>
+        <path class="fine" d="M1 -66 L12 -53 L23 -50 L29 -36 L43 -31 L51 -17 L42 -6 L25 -9 L16 0 L9 15 L-2 15 L-12 3 L-10 -12 L-18 -22 L-12 -38"/>
+        <path class="fine" d="M-48 29 L-30 24 L-18 31 L-7 43 L-11 61 L-22 67"/>
+        <path class="fine" d="M28 32 L42 25 L57 31"/>
+      </g>
+
+      <g id="leaf" class="line">
+        <path d="M1114 770 C1128 742 1151 727 1171 723 C1169 747 1159 773 1123 786 C1112 790 1108 781 1114 770 Z" fill="#0a0e14"/>
+        <path class="fine" d="M1120 781 C1133 765 1147 749 1163 734"/>
+      </g>
+    </g>
+  </g>
+</svg>
