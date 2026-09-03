@@ -359,6 +359,26 @@
         }
         footer p { color: var(--text-dim); font-size: 0.88rem; }
         footer a { color: var(--accent); text-decoration: none; }
+        .footer-quote {
+            text-align: center;
+            padding-bottom: 28px;
+            margin-bottom: 28px;
+            border-bottom: 1px solid var(--border);
+        }
+        .footer-quote .quote-cn {
+            font-family: 'IBM Plex Mono', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', monospace;
+            font-size: 0.85rem;
+            letter-spacing: 0.02em;
+            color: var(--text-dim);
+        }
+        .footer-quote .quote-source {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.02em;
+            color: var(--text-dim);
+            opacity: 0.65;
+            margin-top: 6px;
+        }
 
         /* ---------- RESPONSIVE ---------- */
         @media (max-width: 860px) {
@@ -616,6 +636,10 @@
     </section>
 
     <footer>
+        <div class="container footer-quote">
+            <p class="quote-cn">自古逢秋悲寂寥，我言秋日胜春朝。</p>
+            <p class="quote-source">— Liu Yuxi, <em>Autumn Song</em> (秋词)</p>
+        </div>
         <div class="container">
             <p>© 2026 Zheren Lab — Department of Biochemistry, School of Biological and Behavioural Sciences, <a href="https://www.qmul.ac.uk/sbbs/staff/zheren-zhang.html" target="_blank" rel="noopener">Queen Mary University of London</a></p>
             <p>Office: G.E. Fogg Building &amp; Room 4.34 · <a href="mailto:zheren.zhang@qmul.ac.uk">zheren.zhang@qmul.ac.uk</a></p>
