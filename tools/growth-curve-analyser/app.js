@@ -331,7 +331,7 @@ async function renderGrowthPlot() {
   }
 
   const yTitle = state.result?.summary?.unit === "unknown" ? "Measurement" : state.result.summary.unit;
-  const layout={paper_bgcolor:"#141b26",plot_bgcolor:"#0e141d",font:{family:"Space Grotesk, sans-serif",color:"#dce2ea"},margin:{l:70,r:25,t:35,b:60},xaxis:{title:"Time (h)",gridcolor:"#253243",zerolinecolor:"#253243"},yaxis:{title:yTitle,type:$("#plot-y-axis").value,gridcolor:"#253243",zerolinecolor:"#253243"},legend:{orientation:"h",y:-.22},hovermode:"closest"};
+  const layout={paper_bgcolor:"#141b26",plot_bgcolor:"#0e141d",font:{family:"Space Grotesk, sans-serif",color:"#d4dae3"},margin:{l:70,r:25,t:35,b:60},xaxis:{title:"Time (h)",gridcolor:"#1f2a38",zerolinecolor:"#1f2a38"},yaxis:{title:yTitle,type:$("#plot-y-axis").value,gridcolor:"#1f2a38",zerolinecolor:"#1f2a38"},legend:{orientation:"h",y:-.22},hovermode:"closest"};
   await Plotly.react("growth-plot",traces,layout,{responsive:true,displaylogo:false,scrollZoom:true,modeBarButtonsToRemove:["select2d","lasso2d"]});
   const nonPositive = $("#plot-y-axis").value==="log" ? rows.filter(row=>!(row[valueField]>0)).length : 0;
   $("#plot-status").textContent = traces.length ? (nonPositive ? nonPositive+" non-positive values are hidden on the log axis." : summary.length+" summary points; hover to inspect n and uncertainty.") : "No curves match the selected filters.";
@@ -522,13 +522,13 @@ async function exportTransparentPlot(format, width, height) {
   const screenTheme = {
     paper_bgcolor: "#141b26",
     plot_bgcolor: "#0e141d",
-    "font.color": "#dce2ea",
-    "xaxis.color": "#dce2ea",
-    "xaxis.gridcolor": "#253243",
-    "xaxis.zerolinecolor": "#253243",
-    "yaxis.color": "#dce2ea",
-    "yaxis.gridcolor": "#253243",
-    "yaxis.zerolinecolor": "#253243"
+    "font.color": "#d4dae3",
+    "xaxis.color": "#d4dae3",
+    "xaxis.gridcolor": "#1f2a38",
+    "xaxis.zerolinecolor": "#1f2a38",
+    "yaxis.color": "#d4dae3",
+    "yaxis.gridcolor": "#1f2a38",
+    "yaxis.zerolinecolor": "#1f2a38"
   };
   try {
     await Plotly.relayout(plot, exportTheme);
