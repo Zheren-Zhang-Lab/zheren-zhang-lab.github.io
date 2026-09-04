@@ -1,0 +1,137 @@
+/* Homepage opening sequence. Camera paths and timing live in intro.js. */
+html.intro-active,
+html.intro-active body {
+    overflow: hidden;
+}
+
+.site-intro {
+    display: none;
+}
+
+html.intro-active .site-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: block;
+    overflow: hidden;
+    background: #05070a;
+    opacity: 1;
+    isolation: isolate;
+    transition: opacity 900ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-intro.is-leaving {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Homepage handoff: content waits beneath the retained black frame, then fades in
+   while the intro overlay recedes. These rules do not affect returning visitors. */
+html.intro-active body > :not(.site-intro):not(script) {
+    opacity: 0;
+}
+
+html.intro-active.intro-revealing body > :not(.site-intro):not(script) {
+    opacity: 1;
+    transition: opacity var(--intro-homepage-reveal, 700ms) ease;
+}
+
+.intro-scene {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0;
+    background: #05070a;
+    will-change: opacity;
+}
+
+.intro-scene img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transform-origin: 0 0;
+    backface-visibility: hidden;
+    will-change: transform, filter;
+}
+
+/* A soft-edged transparent opening surrounded by an oversized black shadow. */
+.intro-iris {
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    z-index: 3;
+    width: 88vw;
+    height: 54vh;
+    border-radius: 42%;
+    box-shadow: 0 0 38px 22px rgba(5, 7, 10, 0.96), 0 0 0 160vmax #05070a;
+    transform: translate(-50%, -50%) scale(3.2);
+    opacity: 0;
+    filter: blur(8px);
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+.intro-blackout {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    background: #05070a;
+    opacity: 0;
+    pointer-events: none;
+    will-change: opacity;
+}
+
+.intro-vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 8;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 46%, rgba(2, 4, 7, 0.18) 78%, rgba(2, 4, 7, 0.52) 100%);
+}
+
+.intro-skip {
+    position: absolute;
+    right: max(22px, env(safe-area-inset-right));
+    top: max(22px, env(safe-area-inset-top));
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.48);
+    border-radius: 999px;
+    padding: 9px 15px;
+    color: #fff;
+    background: rgba(5, 7, 10, 0.4);
+    backdrop-filter: blur(10px);
+    font: 500 0.78rem/1 'IBM Plex Mono', monospace;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.intro-skip:hover,
+.intro-skip:focus-visible {
+    border-color: rgba(255, 255, 255, 0.9);
+    background: rgba(5, 7, 10, 0.68);
+    transform: translateY(-1px);
+    outline: none;
+}
+
+@media (max-width: 640px) {
+    .intro-iris {
+        width: 235vw;
+        height: 48vh;
+    }
+
+    .intro-skip {
+        right: max(16px, env(safe-area-inset-right));
+        top: max(16px, env(safe-area-inset-top));
+    }
+
+    .intro-vignette {
+        background: radial-gradient(ellipse at center, transparent 50%, rgba(2, 4, 7, 0.36) 100%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-intro { display: none !important; }
+}

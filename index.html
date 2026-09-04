@@ -8,6 +8,22 @@
     <meta name="keywords" content="Zheren Zhang, Zheren Zhang Lab, synthetic biology, evolutionary biology, division of labour, Streptomyces, directed evolution, Queen Mary University of London, QMUL, microbiology">
     <meta name="author" content="Zheren Zhang">
 
+    <!-- Intro visibility is decided before first paint to prevent a flash for returning visitors. -->
+    <script>
+        (() => {
+            const introStorageKey = 'zheren-lab-intro-v4'; // Change this version to show the intro again.
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            let hasSeenIntro = false;
+            try { hasSeenIntro = localStorage.getItem(introStorageKey) === 'seen'; } catch (_) {}
+
+            if (!hasSeenIntro && !reducedMotion) {
+                document.documentElement.classList.add('intro-active');
+            } else if (reducedMotion && !hasSeenIntro) {
+                try { localStorage.setItem(introStorageKey, 'seen'); } catch (_) {}
+            }
+        })();
+    </script>
+
     <!-- Open Graph: controls how the link looks when shared on social media / messaging apps -->
     <meta property="og:title" content="Zheren Zhang Lab | Synthetic & Evolutionary Biology">
     <meta property="og:description" content="Combining synthetic and evolutionary biology to study microbial division of labour — for discovery and biotechnology.">
@@ -17,6 +33,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="intro.css">
     <style>
         :root {
             --bg:        #0a0e14;
@@ -412,6 +429,16 @@
 </head>
 <body>
 
+    <!-- Opening sequence: independent of the homepage structure underneath. -->
+    <div class="site-intro" id="site-intro" role="dialog" aria-label="Opening visual journey" aria-modal="true">
+        <div class="intro-scene" data-intro-scene="1"><img data-src="images/intro/scene-1.webp" alt="Queen Mary University campus" fetchpriority="high"></div>
+        <div class="intro-iris" aria-hidden="true"></div>
+        <div class="intro-blackout" aria-hidden="true"></div>
+        <div class="intro-vignette" aria-hidden="true"></div>
+        <!-- Change skip button text here; its visual styling is in intro.css. -->
+        <button class="intro-skip" id="intro-skip" type="button">Skip intro</button>
+    </div>
+
     <nav>
         <div class="container">
             <div class="logo">Zheren<span> Lab</span></div>
@@ -646,6 +673,8 @@
             <p>Office: G.E. Fogg Building &amp; Room 4.34 · <a href="mailto:zheren.zhang@qmul.ac.uk">zheren.zhang@qmul.ac.uk</a></p>
         </div>
     </footer>
+
+    <script src="intro.js"></script>
 
 </body>
 </html>
