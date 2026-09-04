@@ -45,7 +45,8 @@ html.intro-active.intro-revealing body > :not(.site-intro):not(script) {
     will-change: opacity;
 }
 
-.intro-scene img {
+.intro-scene img,
+.intro-sketch img {
     width: 100%;
     height: 100%;
     display: block;
@@ -54,6 +55,17 @@ html.intro-active.intro-revealing body > :not(.site-intro):not(script) {
     transform-origin: 0 0;
     backface-visibility: hidden;
     will-change: transform, filter;
+}
+
+/* Pixel-aligned sketch asset revealed only after the surroundings are dark. */
+.intro-sketch {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 0;
+    background: #05070a;
+    pointer-events: none;
+    will-change: opacity;
 }
 
 /* A soft-edged transparent opening surrounded by an oversized black shadow. */

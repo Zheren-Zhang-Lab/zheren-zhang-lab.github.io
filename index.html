@@ -11,7 +11,7 @@
     <!-- Intro visibility is decided before first paint to prevent a flash for returning visitors. -->
     <script>
         (() => {
-            const introStorageKey = 'zheren-lab-intro-v4'; // Change this version to show the intro again.
+            const introStorageKey = 'zheren-lab-intro-v5'; // Change this version to show the intro again.
             const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             let hasSeenIntro = false;
             try { hasSeenIntro = localStorage.getItem(introStorageKey) === 'seen'; } catch (_) {}
@@ -432,6 +432,7 @@
     <!-- Opening sequence: independent of the homepage structure underneath. -->
     <div class="site-intro" id="site-intro" role="dialog" aria-label="Opening visual journey" aria-modal="true">
         <div class="intro-scene" data-intro-scene="1"><img data-src="images/intro/scene-1.webp" alt="Queen Mary University campus" fetchpriority="high"></div>
+        <div class="intro-sketch" aria-hidden="true"><img data-src="images/intro/queens-building-sketch.webp" alt=""></div>
         <div class="intro-iris" aria-hidden="true"></div>
         <div class="intro-blackout" aria-hidden="true"></div>
         <div class="intro-vignette" aria-hidden="true"></div>

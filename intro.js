@@ -2,7 +2,7 @@
     'use strict';
 
     // Change the version suffix when returning visitors should see this intro again.
-    const STORAGE_KEY = 'zheren-lab-intro-v4';
+    const STORAGE_KEY = 'zheren-lab-intro-v5';
 
     // Main timing controls.
     const FULL_IMAGE_HOLD_MS = 900;
@@ -21,6 +21,8 @@
 
     const scene = intro.querySelector('[data-intro-scene="1"]');
     const image = scene.querySelector('img');
+    const sketch = intro.querySelector('.intro-sketch');
+    const sketchImage = sketch.querySelector('img');
     const iris = intro.querySelector('.intro-iris');
     const blackout = intro.querySelector('.intro-blackout');
     const totalDuration = FULL_IMAGE_HOLD_MS + SURROUNDINGS_FADE_MS
@@ -35,6 +37,7 @@
 
     // Returning visitors never request the intro image.
     image.src = image.dataset.src;
+    sketchImage.src = sketchImage.dataset.src;
 
     const rememberIntro = () => {
         try { localStorage.setItem(STORAGE_KEY, 'seen'); } catch (_) {}
@@ -87,6 +90,18 @@
             delay: FULL_IMAGE_HOLD_MS,
             duration: SURROUNDINGS_FADE_MS,
             easing: 'cubic-bezier(0.42, 0, 0.2, 1)',
+            fill: 'both'
+        });
+
+        // During the existing building-hold stage, the photograph resolves into an
+        // aligned architectural drawing instead of switching via a CSS filter.
+        sketch.animate([
+            { opacity: 0 },
+            { opacity: 1 }
+        ], {
+            delay: FULL_IMAGE_HOLD_MS + SURROUNDINGS_FADE_MS,
+            duration: BUILDING_HOLD_MS,
+            easing: 'cubic-bezier(0.45, 0, 0.22, 1)',
             fill: 'both'
         });
 
